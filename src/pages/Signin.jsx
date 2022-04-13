@@ -1,3 +1,4 @@
+import {toast} from 'react-toastify'
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
@@ -32,11 +33,10 @@ const Signin = () => {
 			);
 
 			if (userCredential.user) {
-				// navigate("/");
-				console.log(userCredential.user);
+				navigate("/profile");
 			}
 		} catch (error) {
-			console.log(error);
+			toast.error('error')
 		}
 	};
 
@@ -89,7 +89,8 @@ const Signin = () => {
 									<ArrowRightIcon
 										fill="#FFFFFF"
 										width="30px"
-										hanging="30px"
+										height="30px"
+										// href='/profile'
 									/>
 								</button>
 							</div>

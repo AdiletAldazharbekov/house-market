@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
@@ -45,9 +46,9 @@ const Signup = () => {
 			delete formDataCopy.password;
 			formDataCopy.timestamp = serverTimestamp();
 			await setDoc(doc(db, "users", user.uid), formDataCopy);
-			navigate('/')
+			navigate("/");
 		} catch (error) {
-			console.log(error);
+			toast.error('Error')
 		}
 	};
 
